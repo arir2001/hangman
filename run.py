@@ -1,5 +1,6 @@
 # Your code goes here.
 import time
+import random
 
 #to slow print text
 def machineprint(text, delay = 0.01):
@@ -60,14 +61,34 @@ def name():
             machineprint("That is an invalid input. Please try again.")
 
 
+def randomWord():
+    #Open text file and get random word.
+    file = open('words.txt', 'r', encoding='utf-8')
+    line = file.read().splitlines()
+    rando_word = random.choice(line)
+    return rando_word.lower()
 
-def playgame():
+
+
+def display():
+    #creating the input lines 
+    n = len(randomWord())
+    lis_ = [' _ ']*n
+    string_ = ' '.join([str(i) for i in lis])
+
+    
+
+
+
+
     
 
 
 
 
 
+'''
 welcome_message()   
 name()
 playgame()
+'''
