@@ -1,5 +1,4 @@
 # Your code goes here.
-from pprint import pprint
 import time
 
 def machineprint(text, delay = 0.1):
@@ -7,3 +6,66 @@ def machineprint(text, delay = 0.1):
         print(letter, end="", flush=True)
         time.sleep(delay)
     print()
+
+
+def welcome_message():
+    machineprint("""
+        Hello there! 
+        Welcome to this little game of Hangman!
+
+
+
+    """)
+
+
+
+HANGMANPICS = ['''
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ /    |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ / \  |
+      |
+=========''']
