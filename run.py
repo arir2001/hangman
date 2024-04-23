@@ -56,14 +56,14 @@ def name():
     x=0
 
     while x != 1:
-    if CORRECT == 'Y': 
-        print("Yay! Time to play," , NAME, "!")
-        x == 1
-    elif CORRECT == 'N':
-        name()
-        x==1
-    else: 
-        machineprint("That is an invalid input. Please try again.")
+        if CORRECT == 'Y': 
+            print("Yay! Time to play," , NAME, "!")
+            x == 1
+        elif CORRECT == 'N':
+            name()
+            x==1
+        else: 
+            machineprint("That is an invalid input. Please try again.")
         
 
 
