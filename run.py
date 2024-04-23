@@ -41,7 +41,7 @@ def welcome_message():
         else: 
             machineprint("That is an invalid input. Please try again.")
 
-
+#getting name 
 def name():
     machineprint("What is your name?")
     NAME = input('Your name: ')
@@ -60,8 +60,11 @@ def name():
             machineprint("That is an invalid input. Please try again.")
 
 
+
 def playgame():
-    pass
+    
+
+
 
 
 
