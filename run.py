@@ -10,7 +10,7 @@ def machineprint(text, delay = 0.01):
 
 #the instructions to the game
 instruct = " these are the instructions"
-
+x = 0
 
 #welcoming the game 
 def welcome_message():
@@ -28,52 +28,43 @@ def welcome_message():
         Do you wish to see the instructions?
         Please answer 'Y' for yes or 'N' for no.""")
 
-    x = 0
-
     #to see instructions
     while x != 1:
         INSTRUCTIONS = input('View instructions?:')
         if INSTRUCTIONS == 'Y': 
             print(instruct)
-            name()
             x == 1
-            print(x)
+            return
         elif INSTRUCTIONS == 'N':
-            name()
             x == 1
-            print(x)
+            return
         else: 
             machineprint("That is an invalid input. Please try again.")
-            print(x)
 
 
 def name():
     machineprint("What is your name?")
     NAME = input('Your name: ')
-    CORRECT = input("Is this correct? Enter 'Y' or 'N':" )
-
-    x=0
 
     while x != 1:
+        CORRECT = input("Is this correct? Enter 'Y' or 'N':" )
         if CORRECT == 'Y': 
             print("Yay! Time to play," , NAME, "!")
             x == 1
+            return
         elif CORRECT == 'N':
             name()
             x==1
+            return
         else: 
             machineprint("That is an invalid input. Please try again.")
-        
-
-welcome_message()         
-
- 
-
-     
 
 
 def playgame():
-    print('playing game')
+    pass
 
 
 
+welcome_message()   
+name()
+playgame()
