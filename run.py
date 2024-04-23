@@ -46,7 +46,6 @@ def welcome_message():
             machineprint("That is an invalid input. Please try again.")
             print(x)
 
-welcome_message()         
 
 def name():
     machineprint("What is your name?")
@@ -66,6 +65,7 @@ def name():
             machineprint("That is an invalid input. Please try again.")
         
 
+welcome_message()         
 
  
 
