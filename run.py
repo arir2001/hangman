@@ -2,6 +2,58 @@
 import time
 import random
 
+HANGMEN = ['''
+    +---+
+    |   |
+        |
+        |
+        |
+        |
+    =========''', '''
+    +---+
+    |   |
+    O   |
+        |
+        |
+        |
+    =========''', '''
+    +---+
+    |   |
+    O   |
+    |   |
+        |
+        |
+    =========''', '''
+    +---+
+     |  |
+     O  |
+    /|  |
+        |
+        |
+    =========''', '''
+    +---+
+     |  |
+     O  |
+    /|\ |
+        |
+        |
+    =========''', '''
+    +---+
+     |   |
+     O   |
+    /|\  |
+    /    |
+         |
+    =========''', '''
+     +---+
+     |   |
+     O   |
+    /|\  |
+    / \  |
+         |
+    =========''']
+
+
 #to slow print text
 def machineprint(text, delay = 0.01):
     for letter in text:
@@ -36,9 +88,11 @@ def welcome_message():
             print(instruct)
             x == 1
             return
+        #no i don't want to see instructions: 
         elif INSTRUCTIONS == 'N':
             x == 1
             return
+        #invalid respoonse: 
         else: 
             machineprint("That is an invalid input. Please try again.")
 
@@ -69,14 +123,48 @@ def randomWord():
     return rando_word.lower()
 
 
+chances_gone = 0
+letters_spaces_found  = 0
+letters_used  = []
 
-def display():
+def display(letters_spaces_found, letters_used, chances_gone):
     #creating the input lines 
-    n = len(randomWord())
-    lis_ = [' _ ']*n
-    string_ = ' '.join([str(i) for i in lis])
+    n = len(randomWord())                       #number of letters in word
+    lis_ = [' _ ']*n                            #_ _ _ *n
+    string_ = ' '.join([str(i) for i in lis_])  #adding the _ together in one string
 
-    
+    """if letters_spaces_found != 0:
+        string"""
+
+    # creating hangman
+    m = len(HANGMEN) - chances_gone             #which hangman to print? 
+    print(HANGMEN[m])                       
+    print('\n', string_, '\n')                  #the _ _ _ _ 
+    print("Chances left:", m, '\n')             #numberr of chances left
+    print("Letters used:",'\n' , letters_used)  
+    return n
+
+display(0, 0, 3)
+
+def display_input():
+    while x != 1:
+        GUESS = input("Your guess: " )
+
+        if len(GUESS) != n:
+            machineprint("Please enter a word with the correct number of letters. ")
+        else: 
+            machineprint("Your guess is ", GUESS)
+            return
+
+
+
+
+
+
+display_input()
+
+
+
 
 
 
