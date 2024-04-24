@@ -113,16 +113,26 @@ def machineprint(text, delay = 0.01):
 
 #the instructions to the game
 instruct = """Instructions:
-    A Hangman pic art will appear. He has 7 parts, including his head and rope, that gives you 7 chances 
-    to guess the word given. You will be told the number of letters in the word, the letters you have guessed,
-    and the chances you have left. 
+    A Hangman pic art will appear. 
 
-    You will be asked if you want to guess the word or the letter. Input a capital W for word or L for letter. 
-    If you guess either of them wrong, a part of the hangman will be taken awaay and you will loose a chance. 
-    If you guess a letter twice, you will be told and no chances will be lost. There aare no repeating letters 
-    in this game.
-    If you guess a word that has one of the corrrect letters in it, you will not be told what letters are correct
-    and will still lose a life. You must guess lettters individually for them to be reveaaled.
+    He has 7 parts, including his head and rope, that gives you 7 chances 
+    to guess the word given. You will be told the number of letters in 
+    the word, the letters you have guessed, and the chances you have left. 
+
+    You will be asked if you want to guess the word or the letter. At 
+    any point in the game you can change your mind and input "word" to 
+    swap to inputting words, and "letter" to swap to inputting letters.
+
+    If you guess either of them wrong, a part of the hangman will be taken
+    away and you will loose a chance. 
+    
+    If you guess a letter twice, you will be told and no chances will be 
+    lost. There are no repeating letters in the words of this game.
+    
+    If you guess a word that has one of the corrrect letters in it, you 
+    will not be told what letters are correct and will still lose a life.
+    
+    You must guess lettters individually for them to be revealed.
 
     """
 x = 0
