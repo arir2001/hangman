@@ -422,7 +422,7 @@ def play():
 
 
 
-#welcome_message()   
-#name()
+welcome_message()   
+name()
 play()
 
