@@ -203,7 +203,7 @@ class GamePlay:
         self.word = random_word
         self.letters_found = []     #the correct letters entered.
         self.letters_guessed= []      #all the letters attempted
-        print(self.word)   #for testing
+        #print(self.word)   #for testing
         
         self.correct_letters = [x for x in self.word] # getting the individual letters
 
@@ -293,11 +293,8 @@ class GamePlay:
         if self.chances_left == 0:
             self.loser()
             return
-
-        print('\n')
         
         string_ = ' '.join([str(i) for i in self.lis_])  #adding the _ together in one string
-
         # creating hangman
         machineprint(HANGMEN[self.chances_left-1])    #-1 due to indexing in python     
 
@@ -305,8 +302,8 @@ class GamePlay:
         machineprint(string_)                  #the _ _ _ _ 
         print('\n')
         print("This is a ", self.n , "letter word")
+        print('\n') #number of chances left
 
-                  #number of chances left
         print("Incorrect letters used:",'\n' , self.letters_guessed)      #letters guessed
         print('\n' , "Letters found:",'\n' , self.letters_found)       #correct letterrs found
 
@@ -374,7 +371,6 @@ class GamePlay:
         if it is, the index of the letter from the word is noted, and the list containg the ___ 
         is updated so the letter now stands where a _ was. 
         """
-        print("reached checj")
         if len(GUESS) == 1:
             for index, letter in enumerate(self.correct_letters):
 
