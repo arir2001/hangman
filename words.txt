@@ -1,6 +1,5 @@
 brick
 jumpy
-vozhd
 glent
 waqfs
 vibex
