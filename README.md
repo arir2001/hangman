@@ -25,7 +25,19 @@ Words Used:
 brick, jumpy, gent, lady, sad, over, vibes, fjord, nymph, waltz, ducks, bling, jumpy, treck, walk, lamp, post, stumped, back, bat, fowl, jordan, phlegm, halway, over, dumb, work, jawbox, kvetch, drying, jumble, dwarfing, poxy, jawbox, field, chinks, blacksmith, gunpowder.
 
 ### Features
+The user is welcomed by a sign and some nice text: 
+![Second Coding flowchart](LANDINGART.png)
 
+Then the user gets to choose if she wishes to see the instruction manual. She is then asked if she wants to input words or letters. She can change this at any time using word or letter into the input. 
+![Second Coding flowchart](landing2.png)
+
+If the incorrect word is entered, the chances left is decreased and the little haangman loses a limb. If the word is correct, the winning screen is shown. If the letter is correct,the winner screen prints. 
+![Chances gone](landing3.png)
+
+![Winner screen ](winning1.png)
+![Winner screen ](winning2.png)
+
+![Loseer screen ](loser.png)
 
 ### Features Left to Implement
 

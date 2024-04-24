@@ -105,7 +105,7 @@ LOSER = """
 
 
 #to slow print text
-def machineprint(text, delay = 0.01):
+def machineprint(text, delay = 0.015):
     for letter in text:
         print(letter, end="", flush=True)
         time.sleep(delay)
@@ -245,8 +245,7 @@ class GamePlay:
             return
 
         
-        
-        
+    
     def winner(self):
         machineprint("You win!")
 
@@ -264,7 +263,6 @@ class GamePlay:
         if playagain == 'n':
             machineprint("Goodbye, winner winner, chicken dinner.")
             sys.exit(1)
-            print("After exit") 
 
 
 
@@ -325,9 +323,8 @@ class GamePlay:
         GUESS = input("Your word guess: \n" )
         if GUESS.isupper():
             GUESS = GUESS.lower()
-            print(GUESS)
 
-        elif GUESS =='letter':
+        if GUESS =='letter':
             self.func = 'letter'
             return
 
@@ -337,6 +334,7 @@ class GamePlay:
 
         else: 
             self.guess = GUESS
+            self.checker(self.guess)
 
     #guessing a letter func  
     def display_input_letter(self):
@@ -344,9 +342,9 @@ class GamePlay:
 
         if GUESS.isupper():
             GUESS = GUESS.lower()
-            print(GUESS)
 
-        elif GUESS =='word':
+        if GUESS =='word':
+            print("reaching func 349")
             self.func = 'word'
             return
 
@@ -359,9 +357,10 @@ class GamePlay:
         if len(GUESS) != 1:
             machineprint("Please only guess one letter at a time. ")
             self.display_input_letter()
-            return
+            
 
         else: 
+            print('reaching else 365')
             self.guess = GUESS
             self.checker(self.guess)
 
