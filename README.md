@@ -53,6 +53,10 @@ The live link can be found here -
 
 - hangman text art: https://gist.github.com/chrishorton/8510732aa9a80a03c829b09f12e20d9c
 
+- walking text art: https://emojicombos.com/walk-ascii-art
+
+- celebratorry emojis:  https://emojicombos.com/celebrate-ascii-emoji
+
 
 
 

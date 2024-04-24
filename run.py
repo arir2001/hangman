@@ -1,6 +1,7 @@
 # Your code goes here.
 import time
 import random
+import os 
 
 HANGMEN = ['''
     +---+
@@ -34,24 +35,60 @@ HANGMEN = ['''
     +---+
      |  |
      O  |
-    /|\ |
+    /|\\ |
         |
         |
     =========''', '''
     +---+
      |   |
      O   |
-    /|\  |
+    /|\\  |
     /    |
          |
     =========''', '''
      +---+
      |   |
      O   |
-    /|\  |
-    / \  |
+    /|\\  |
+    / \\  |
          |
     =========''']
+
+
+CELEBRATE = """
+    ＼(＾O＾)／
+
+    (,,>ヮ<,,)!             (づ๑•ᴗ•๑)づ♡
+    
+    ദ്ദി ˉ͈̀꒳ˉ͈́ )✧         ᵔ ᵕ ᵔ 
+
+                        ( • ̀ω•́ )✧
+    (,,>﹏<,,)                           °❀⋆.ೃ࿔*:･
+
+
+    ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣾⣿⣿⣷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⣿⣿⣿⡿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣤⡈⠛⢉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⣿⣿⣿⣿⣿⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⣴⣿⣿⢿⣿⣿⣿⣿⣿⠀⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⢰⣿⡏⠀⢸⣿⣿⣿⣿⡇⢸⣷⣤⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⣼⣿⠁⠀⢸⣿⣿⣿⣿⠁⠀⠙⠻⢿⣿⣶⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠛⠋⠀⠀⠸⣿⣿⣿⡏⠀⠀⠀⠀⠀⠈⠉⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣄⠙⣿⣿⣷⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣦⠈⢿⣿⣿⣦⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⣿⡟⠀⠀⠻⣿⣿⣧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⣠⣾⣿⠟⠁⠀⠀⠀⠘⢿⣿⣧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⢾⣿⠟⠁⠀⠀⠀⠀⠀⠀⠈⢻⣿⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀
+
+    you are a free man......
+                for now......
+                play again?
+    """
+
+LOSER = """
+    ▄︻デⱠØ₴ɆⱤ══━一
+    """
 
 
 #to slow print text
@@ -73,8 +110,8 @@ def welcome_message():
             +---+
             |   |
             O   |
-           /|\  |
-           / \  |
+           /|\\  |
+           / \\  |
                 |
         =========
 
@@ -129,6 +166,7 @@ letters_spaces_found  = 0
 class GamePlay:
     
     word = randomWord()
+    print(word)
     
     correct_letters = [x for x in word] # getting the individual letters
 
@@ -140,31 +178,60 @@ class GamePlay:
     
     chances = len(HANGMEN)                      #number of chances
     
-    guess = ''
-
     def __init__(self, random_word):
         # instance attribute
         self.letters_found = []     #the correct letters entered.
         self.letters_guessed= []      #all the letters attempted
-        self.chances_left = self.chances -  len(self.letters_guessed)
-        #the chances left
         
-    def winner():
-        print("You win!")
-        return
+        
+        
+    def winner(self):
+        machineprint("You win!")
+
+        machineprint(CELEBRATE)
+
+        playagain = input("Please enter Y or N:" )
+
+        if playagain == 'Y': 
+            os.system('clear')
+            play()
+
+        if playagain == 'N':
+            machineprint("Goodbye, winner winner, chicken dinner.")
+
+
+    def loser(self):
+        machineprint("You LOSE!")
+
+        machineprint(LOSER)
+
+        playagain = input("Try again? Please enter Y or N:" )
+
+        if playagain == 'Y': 
+            os.system('clear')
+            play()
+
+        if playagain == 'N':
+            machineprint("Goodbye, sucker.")
+
+
+
 
     #prints the _ _ _ and the hangman. 
     def display(self ):
+        self.chances_left = self.chances -  len(self.letters_guessed)   #the chances left
         #creating the input lines 
         string_ = ' '.join([str(i) for i in self.lis_])  #adding the _ together in one string
 
         # creating hangman
-        print(HANGMEN[self.chances_left-1])    #-1 due to indexing in python                   
-       
-        print('\n', string_, '\n')                  #the _ _ _ _ 
-       
+        machineprint(HANGMEN[self.chances_left-1])    #-1 due to indexing in python     
+
+        print('\n')
+        machineprint(string_)                  #the _ _ _ _ 
+        print('\n')
+
         print("Chances left:", self.chances_left, '\n')             #number of chances left
-        print("Letters used:",'\n' , self.letters_guessed)      #letters guessed
+        print("Incorrect letters used:",'\n' , self.letters_guessed)      #letters guessed
         print("Letters found:",'\n' , self.letters_found)       #correct letterrs found
         
         
@@ -179,7 +246,6 @@ class GamePlay:
                 self.guess = GUESS
                 print('guess strring', self.guess)
 
-    
 
     #guessing a letter func  
     def display_input_letter(self):
@@ -192,8 +258,10 @@ class GamePlay:
                 self.guess = GUESS
 
                 
-   #asking if to guess a word or letter          
+           
     def guess_WL(self):
+        """asking if to guess a word or letter  
+        """
         machineprint("Would you like to guess a word or a letter? Reply 'W' or 'L'" )
         ceist = input("W or L?:" )
         
@@ -208,6 +276,7 @@ class GamePlay:
             self.guess_WL()
         
         
+    
     def checker(self, GUESS):
         """checking if the letter guessed is in the word. 
         if it is, the index of the letter from the word is noted, and the list containg the ___ 
@@ -217,14 +286,22 @@ class GamePlay:
         if len(GUESS) == 1:
             for index, letter in enumerate(self.correct_letters):
                 index = index
-                if letter == GUESS:
-                    self.letters_found.append(GUESS)
-                    self.lis_[index]=letter
-                    print(self.lis_)
+                if GUESS in self.word:
+                    if letter == GUESS:
+                        self.letters_found.append(GUESS)
+                        self.lis_[index]=letter
+                        machineprint('Correct guess!!!!! ')
+                        
+                        self.start()
+
+
                 else:
                      self.chances_left - 1
+                     self.letters_guessed.append(GUESS)
                      machineprint('Incorrrect guess!!!!! ')
+                     self.start()
         
+
         if len(GUESS) == self.n:
             if GUESS == self.word:
                 self.winner()
