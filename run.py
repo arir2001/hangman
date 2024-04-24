@@ -88,7 +88,19 @@ CELEBRATE = """
     """
 
 LOSER = """
+
+    $$______ ____$$$___ ___$$$$$__ __$$$$$$$_ __$$$$$$__ ____$$_
+    $$______ ___$$_$$__ __$$___$$_ __$$______ __$$___$$_ ____$$_
+    $$______ __$$___$$_ ___$$$____ __$$$$$___ __$$___$$_ ____$$_
+    $$______ __$$___$$_ _____$$$__ __$$______ __$$$$$$__ ____$$_
+    $$____$_ ___$$_$$__ __$$___$$_ __$$______ __$$___$$_ _______
+    $$$$$$$_ ____$$$___ ___$$$$$__ __$$$$$$$_ __$$___$$_ ____$$_
+
+
+
     ▄︻デⱠØ₴ɆⱤ══━一
+
+
     """
 
 
@@ -120,6 +132,14 @@ x = 0
 #welcoming the game 
 def welcome_message():
     machineprint("""
+
+    ██╗░░██╗░█████╗░███╗░░██╗░██████╗░  ███╗░░░███╗░█████╗░███╗░░██╗
+    ██║░░██║██╔══██╗████╗░██║██╔════╝░  ████╗░████║██╔══██╗████╗░██║
+    ███████║███████║██╔██╗██║██║░░██╗░  ██╔████╔██║███████║██╔██╗██║
+    ██╔══██║██╔══██║██║╚████║██║░░╚██╗  ██║╚██╔╝██║██╔══██║██║╚████║
+    ██║░░██║██║░░██║██║░╚███║╚██████╔╝  ██║░╚═╝░██║██║░░██║██║░╚███║
+    ╚═╝░░╚═╝╚═╝░░╚═╝╚═╝░░╚══╝░╚═════╝░  ╚═╝░░░░░╚═╝╚═╝░░╚═╝╚═╝░░╚══╝
+
         Hello there! 
         Welcome to this little game of Hangman! 
             +---+
@@ -326,7 +346,11 @@ class GamePlay:
         
         if len(GUESS) == 1:
             for index, letter in enumerate(self.correct_letters):
+
                 index = index
+                if GUESS in self.letters_guessed:
+                    print("You've already guessed this letter.")
+                    
                 if GUESS in self.word:
                     if letter == GUESS:
                         self.letters_found.append(GUESS)
@@ -334,7 +358,7 @@ class GamePlay:
                         #self.correct_letters.remove(letter)
                         machineprint('Correct guess!!!!! ')
 
-                        if self.letters_found == self.correct_letters:
+                        if set(self.letters_found) == set(self.correct_letters):
                              self.winner()
             
                         self.start()
@@ -351,7 +375,7 @@ class GamePlay:
                 self.winner()
             
             else:
-                 self.chances_left - 1
+                 self.chances_left -= 1
                  machineprint('Incorrrect guess!!!!! ')
                  self.guess_WL()
             
@@ -372,8 +396,8 @@ def play():
 
 
 
-#welcome_message()   
-#name()
+welcome_message()   
+name()
 play()
 
 
