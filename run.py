@@ -219,6 +219,8 @@ class GamePlay:
 
         self.lis_ = [' _ ']*self.n        #list of _ _ _ *n
         self.chances = len(HANGMEN)                      #number of chances
+        print("If you would prefer to guess a word, type 'word' into the terminal.")
+        print("If you would prefer to guess a letter, type 'letter' into the terminal.")
         
         
         
@@ -227,13 +229,16 @@ class GamePlay:
 
         machineprint(CELEBRATE)
         print('\n')
-        playagain = input("Please enter Y or N: \n" )
+        playagain = input("Please enter y or n: \n" )
 
-        if playagain == 'Y': 
+        if playagain.isupper():
+            playagain = playagain.lower()
+
+        if playagain == 'y': 
             os.system('clear')
             play()
 
-        if playagain == 'N':
+        if playagain == 'n':
             machineprint("Goodbye, winner winner, chicken dinner.")
             sys.exit(1)
             print("After exit") 
@@ -249,13 +254,16 @@ class GamePlay:
 
         machineprint(LOSER)
 
-        playagain = input("Try again? Please enter Y or N: \n" )
+        playagain = input("Try again? Please enter y or n: \n" )
 
-        if playagain == 'Y': 
+        if playagain.isupper():
+            playagain = playagain.lower()
+
+        if playagain == 'y': 
             os.system('clear')
             play()
 
-        if playagain == 'N':
+        if playagain == 'n':
             machineprint("Goodbye, sucker.")
             sys.exit(1)
             print("After exit") 
@@ -283,14 +291,26 @@ class GamePlay:
         print("Chances left:", self.chances_left, '\n')             #number of chances left
         print("Incorrect letters used:",'\n' , self.letters_guessed)      #letters guessed
         print('\n' , "Letters found:",'\n' , self.letters_found)       #correct letterrs found
+
+        
         
         
     #guessing a word func
     def display_input_word(self):
         GUESS = input("Your guess: \n" )
-        if len(GUESS) != self.n:
+
+        if GUESS.isupper():
+            GUESS = GUESS.lower()
+            print(GUESS)
+
+        elif len(GUESS) != self.n:
                 print("Please enter a word with", self.n ,"letters. ")
                 self.display_input_word()
+
+        elif GUESS =='letter':
+            self.display_input_letter()
+            return
+
         else: 
                 self.guess = GUESS
                 
@@ -301,8 +321,11 @@ class GamePlay:
         GUESS = input("Your guess: \n" )
 
         if GUESS.isupper():
-            print("please enter lowercase letter.")
-            self.display_input_letter()
+            GUESS = GUESS.lower()
+            print(GUESS)
+
+        if GUESS =='word':
+            self.display_input_word()
             return
 
         for letter in self.letters_guessed: 
@@ -312,30 +335,14 @@ class GamePlay:
                 return
 
         if len(GUESS) != 1:
-                machineprint("Please only guess one letter at a time. ")
-                self.display_input_letter()
+            machineprint("Please only guess one letter at a time. ")
+            self.display_input_letter()
+            return
 
         else: 
-                self.guess = GUESS
+            self.guess = GUESS
 
-                
-           
-    def guess_WL(self):
-        """asking if to guess a word or letter  
-        """
-        machineprint("Would you like to guess a word or a letter? Reply 'W' or 'L'" )
-        ceist = input("W or L?:\n" )
-        
-        if ceist == 'W': 
-            self.display_input_word()
             
-        elif ceist == 'L':
-            self.display_input_letter()
-            
-        else:
-            print("Please enter either W or L!")
-            self.guess_WL()
-        
         
     
     def checker(self, GUESS):
@@ -399,15 +406,4 @@ def play():
 welcome_message()   
 name()
 play()
-
-
-
-
-    
-
-
-
-
-
-
 
