@@ -135,7 +135,7 @@ def welcome_message():
 
     #to see instructions
     while x != 1:
-        INSTRUCTIONS = input('View instructions?:')
+        INSTRUCTIONS = input('View instructions?: \n')
         if INSTRUCTIONS == 'Y': 
             print(instruct)
             x == 1
@@ -146,15 +146,15 @@ def welcome_message():
             return
         #invalid respoonse: 
         else: 
-            machineprint("That is an invalid input. Please try again.")
+            machineprint("That is an invalid input. Please try again. \n")
 
 #getting name 
 def name():
     machineprint("What is your name?")
-    NAME = input('Your name: ')
+    NAME = input('Your name: \n')
 
     while x != 1:
-        CORRECT = input("Is this correct? Enter 'Y' or 'N':" )
+        CORRECT = input("Is this correct? Enter 'Y' or 'N': \n" )
         if CORRECT == 'Y': 
             print("Yay! Time to play," , NAME, "!")
             x == 1
@@ -164,7 +164,7 @@ def name():
             x==1
             return
         else: 
-            machineprint("That is an invalid input. Please try again.")
+            machineprint("That is an invalid input. Please try again.\n")
 
 
 def randomWord():
@@ -185,7 +185,7 @@ class GamePlay:
         self.word = random_word
         self.letters_found = []     #the correct letters entered.
         self.letters_guessed= []      #all the letters attempted
-        #print(self.word)   #for testing
+        print(self.word)   #for testing
         
         self.correct_letters = [x for x in self.word] # getting the individual letters
 
@@ -207,7 +207,7 @@ class GamePlay:
 
         machineprint(CELEBRATE)
         print('\n')
-        playagain = input("Please enter Y or N:" )
+        playagain = input("Please enter Y or N: \n" )
 
         if playagain == 'Y': 
             os.system('clear')
@@ -229,7 +229,7 @@ class GamePlay:
 
         machineprint(LOSER)
 
-        playagain = input("Try again? Please enter Y or N:" )
+        playagain = input("Try again? Please enter Y or N: \n" )
 
         if playagain == 'Y': 
             os.system('clear')
@@ -267,7 +267,7 @@ class GamePlay:
         
     #guessing a word func
     def display_input_word(self):
-        GUESS = input("Your guess: " )
+        GUESS = input("Your guess: \n" )
         if len(GUESS) != self.n:
                 print("Please enter a word with", self.n ,"letters. ")
                 self.display_input_word()
@@ -278,7 +278,7 @@ class GamePlay:
 
     #guessing a letter func  
     def display_input_letter(self):
-        GUESS = input("Your guess: " )
+        GUESS = input("Your guess: \n" )
 
         if GUESS.isupper():
             print("please enter lowercase letter.")
@@ -304,7 +304,7 @@ class GamePlay:
         """asking if to guess a word or letter  
         """
         machineprint("Would you like to guess a word or a letter? Reply 'W' or 'L'" )
-        ceist = input("W or L?:" )
+        ceist = input("W or L?:\n" )
         
         if ceist == 'W': 
             self.display_input_word()
@@ -372,8 +372,8 @@ def play():
 
 
 
-welcome_message()   
-name()
+#welcome_message()   
+#name()
 play()
 
 

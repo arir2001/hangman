@@ -15,35 +15,24 @@ Hangman is a fun and challenging word-guessing game that tests players' vocabula
 ![Coding flowchart](flowchart.png)
 
 The code uses class-based object-orientated programming. 
-The introduction and instructions to the game are seperate functions called at the end of the code. Then the game plays through the class "GamePlay." If the user is  winnerr, celebratory text art is printed. If a loser, sad text art is printed. 
+The introduction and instructions to the game are seperate functions called at the end of the code. Then the game plays through the class "GamePlay." If the user is  winner, celebratory text art is printed. If a loser, sad text art is printed. 
 
 
 ### Features Left to Implement
 
-- An ability to 
+- An ability to use words with double-letters. At the moment the code is not set up to handle inputs of a letter morre than once, and cannot understand how to deal with words that have a letter in it more than once.
+
+- A leaderboard. If a google sheet were connected, the names, scores and dates could be updated and viewed. 
 
 ## Testing 
-
-Using [Lighthouse](https://googlechrome.github.io/lighthouse/viewer/?psiurl=https%3A%2F%2F8000-arir2001-hughsbrews-rz235lbgdzz.ws-eu107.gitpod.io%2F&strategy=mobile&category=performance&category=accessibility&category=best-practices&category=seo&category=pwa&utm_source=lh-chrome-ext)
-
-![testing](blob/lighthouse.png)
-
-While everything was well done, the performance is poor due to the way the images were uploaded in large files. 
 
 ### Validator Testing 
 
 
-### Unfixed Bugs
-
-The unfixed bugs found in the validators were mainly to do with image sizing and minor syntax structure like trailing slaashes. Due to the time constrraints on this project it was deemed these could be fixed at a later date. 
-
-The performance could be improved upon also. 
-
 ## Deployment
 
-- The site was deployed to Heruko App. The steps to deploy are as follows: 
-  - 
-The live link can be found here - 
+- The site was deployed to Heruko App. 
+The live link can be found here - https://hangman-1-game-371a683f8158.herokuapp.com/
 
 
 ## Credits 
