@@ -13,6 +13,7 @@
         body {
             font-family: Arial;
             text-align: center;
+            background-color: black;
         }
 
         /**
@@ -40,6 +41,12 @@
         * IMEs to appear on top.
         */
             z-index: 5;
+        }
+        
+        #terminal {
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .xterm .xterm-helper-textarea {
@@ -118,6 +125,8 @@
         .xterm.enable-mouse-events {
             /* When mouse events are enabled (eg. tmux), revert to the standard pointer cursor */
             cursor: default;
+            align-content: center;
+            padding-left: 10%;
         }
 
         .xterm.xterm-cursor-pointer {
