@@ -192,7 +192,54 @@ class GamePlay:
                 self.guess = GUESS
 
                 
-
+   #asking if to guess a word or letter          
+    def guess_WL(self):
+        machineprint("Would you like to guess a word or a letter? Reply 'W' or 'L'" )
+        ceist = input("W or L?:" )
+        
+        if ceist == 'W': 
+            self.display_input_word()
+            
+        elif ceist == 'L':
+            self.display_input_letter()
+            
+        else:
+            print("Please enter either W or L!")
+            self.guess_WL()
+        
+        
+    def checker(self, GUESS):
+        """checking if the letter guessed is in the word. 
+        if it is, the index of the letter from the word is noted, and the list containg the ___ 
+        is updated so the letter now stands where a _ was. 
+        """
+        
+        if len(GUESS) == 1:
+            for index, letter in enumerate(self.correct_letters):
+                index = index
+                if letter == GUESS:
+                    self.letters_found.append(GUESS)
+                    self.lis_[index]=letter
+                    print(self.lis_)
+                else:
+                     self.chances_left - 1
+                     machineprint('Incorrrect guess!!!!! ')
+        
+        if len(GUESS) == self.n:
+            if GUESS == self.word:
+                self.winner()
+            
+            else:
+                 self.chances_left - 1
+                 machineprint('Incorrrect guess!!!!! ')
+                 self.guess_WL()
+            
+            
+               
+    def start(self):
+        self.display()
+        self.guess_WL()
+        self.checker(self.guess)
         
             
             
