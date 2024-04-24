@@ -333,7 +333,10 @@ class GamePlay:
                         self.lis_[index]=letter
                         #self.correct_letters.remove(letter)
                         machineprint('Correct guess!!!!! ')
-                        
+
+                        if self.letters_found == self.correct_letters:
+                             self.winner()
+            
                         self.start()
 
                 else:

@@ -1,25 +1,26 @@
 # Hangman
 
-Hangman is a classic game where a stick figure hanging from a rope has his limbs removed for each wrong letter guessed for a word. In this online game, a stick figure is created in a python terminal using text art. The user is prompted to enter a guess letter for a 
+Hangman is a classic game where a stick figure hanging from a rope has his limbs removed for each wrong letter guessed for a word. In this online game, a stick figure is created in a python terminal using text art. 
 
-![Responsive Mockup]
+Hangman is a fun and challenging word-guessing game that tests players' vocabulary, deductive reasoning, and luck.
+
+![Responsive Mockup](amiresponsive.png)
 ## Site Goals!
 - to provide a game that is both challenging and rewarding.
 - to entertain the user with interactive text form the terminal
 - to entice the user to play again.  
 
-
 ### The Code
 
 ![Coding flowchart](flowchart.png)
 
-- __Farm Section__
-  - 
+The code uses class-based object-orientated programming. 
+The introduction and instructions to the game are seperate functions called at the end of the code. Then the game plays through the class "GamePlay." If the user is  winnerr, celebratory text art is printed. If a loser, sad text art is printed. 
 
 
 ### Features Left to Implement
 
-- 
+- An ability to 
 
 ## Testing 
 
