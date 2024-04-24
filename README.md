@@ -11,11 +11,18 @@ Hangman is a fun and challenging word-guessing game that tests players' vocabula
 - to entice the user to play again.  
 
 ### The Code
+This was the basic blueprint of the code I envisioned before I started: 
+![Proposed Coding flowchart](flowchart.png)
 
-![Coding flowchart](flowchart.png)
+After, this is how it ended up: 
+
+![Second Coding flowchart](DIAGRAM2.png)
 
 The code uses class-based object-orientated programming. 
 The introduction and instructions to the game are seperate functions called at the end of the code. Then the game plays through the class "GamePlay." If the user is  winner, celebratory text art is printed. If a loser, sad text art is printed. 
+
+Words Used: 
+brick, jumpy, gent, lady, sad, over, vibes, fjord, nymph, waltz, ducks, bling, jumpy, treck, walk, lamp, post, stumped, back, bat, fowl, jordan, phlegm, halway, over, dumb, work, jawbox, kvetch, drying, jumble, dwarfing, poxy, jawbox, field, chinks, blacksmith, gunpowder.
 
 
 ### Features Left to Implement
@@ -36,7 +43,6 @@ The live link can be found here - https://hangman-1-game-371a683f8158.herokuapp.
 
 
 ## Credits 
-
 ### Content 
 
 - slow printing of text in terminal: https://gist.github.com/wynand1004/5a9fd2837140fcdf26e790a112d09ac4
@@ -53,6 +59,6 @@ The live link can be found here - https://hangman-1-game-371a683f8158.herokuapp.
 
 ### Media
 
-- The flowchaart was ccreated using Lucid Chart 
+- The flowchart was ccreated using Lucid Chart 
 
 

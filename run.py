@@ -128,7 +128,7 @@ instruct = """Instructions:
     
     If you guess a letter twice, you will be told and no chances will be 
     lost. There are no repeating letters in the words of this game.
-    
+
     If you guess a word that has one of the corrrect letters in it, you 
     will not be told what letters are correct and will still lose a life.
     
@@ -332,8 +332,8 @@ class GamePlay:
             return
 
         elif len(GUESS) != self.n:
-                print("Please enter a word with", self.n ,"letters. ")
-                self.display_input_word()
+            print("Please enter a word with", self.n ,"letters. ")
+            self.display_input_word()
 
         else: 
             self.guess = GUESS
