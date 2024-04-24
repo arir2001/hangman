@@ -124,8 +124,6 @@ instruct = """Instructions:
     If you guess a word that has one of the corrrect letters in it, you will not be told what letters are correct
     and will still lose a life. You must guess lettters individually for them to be reveaaled.
 
-    IMPORTANT: all letters guessed must be lowercase. 
-
     """
 x = 0
 
@@ -156,12 +154,13 @@ def welcome_message():
     #to see instructions
     while x != 1:
         INSTRUCTIONS = input('View instructions?: \n')
-        if INSTRUCTIONS == 'Y': 
+        INSTRUCTIONS = INSTRUCTIONS.lower()
+        if INSTRUCTIONS == 'y': 
             print(instruct)
             x == 1
             return
         #no i don't want to see instructions: 
-        elif INSTRUCTIONS == 'N':
+        elif INSTRUCTIONS == 'n':
             x == 1
             return
         #invalid respoonse: 
@@ -175,11 +174,12 @@ def name():
 
     while x != 1:
         CORRECT = input("Is this correct? Enter 'Y' or 'N': \n" )
-        if CORRECT == 'Y': 
+        CORRECT = CORRECT.lower()
+        if CORRECT == 'y': 
             print("Yay! Time to play," , NAME, "!")
             x == 1
             return
-        elif CORRECT == 'N':
+        elif CORRECT == 'n':
             name()
             x==1
             return
@@ -195,8 +195,6 @@ def randomWord():
     return rando_word.lower()
 
 
-chances_gone = 0
-letters_spaces_found  = 0
 
 class GamePlay:
 
@@ -211,16 +209,30 @@ class GamePlay:
 
         self.n = len(self.word)                       #number of letters in word
 
-        print('\n')
-
-        print("This is a ", self.n , "letter word")
-
-        print('\n')
-
         self.lis_ = [' _ ']*self.n        #list of _ _ _ *n
         self.chances = len(HANGMEN)                      #number of chances
-        print("If you would prefer to guess a word, type 'word' into the terminal.")
-        print("If you would prefer to guess a letter, type 'letter' into the terminal.")
+        print('\n')
+        machineprint("If you would prefer to guess a word, type 'word' into the terminal.")
+        print('\n')
+        machineprint("If you would prefer to guess a letter, type 'letter' into the terminal.")
+        print('\n')
+        machineprint("You can change this at any time by simply typing 'word' or 'letter' into the input.")
+
+        self.func= input("Word or Letter?" )
+
+        self.display()
+
+
+    def WL(self, func):
+        func = func.lower()
+        if func == 'word':
+            self.display_input_word()
+            return
+            
+        elif func == 'letter': 
+            self.display_input_letter()
+            return
+
         
         
         
@@ -273,11 +285,16 @@ class GamePlay:
 
     #prints the _ _ _ and the hangman. 
     def display(self ):
+
+        print('\n')
         self.chances_left = self.chances -  len(self.letters_guessed)   #the chances left
+        print("Chances left:", self.chances_left, '\n')   
 
         if self.chances_left == 0:
             self.loser()
             return
+
+        print('\n')
         
         string_ = ' '.join([str(i) for i in self.lis_])  #adding the _ together in one string
 
@@ -287,45 +304,51 @@ class GamePlay:
         print('\n')
         machineprint(string_)                  #the _ _ _ _ 
         print('\n')
+        print("This is a ", self.n , "letter word")
 
-        print("Chances left:", self.chances_left, '\n')             #number of chances left
+                  #number of chances left
         print("Incorrect letters used:",'\n' , self.letters_guessed)      #letters guessed
         print('\n' , "Letters found:",'\n' , self.letters_found)       #correct letterrs found
+
+        self.WL(self.func)
+
+
+        
+
 
         
         
         
     #guessing a word func
     def display_input_word(self):
-        GUESS = input("Your guess: \n" )
-
+        GUESS = input("Your word guess: \n" )
         if GUESS.isupper():
             GUESS = GUESS.lower()
             print(GUESS)
+
+        elif GUESS =='letter':
+            self.func = 'letter'
+            return
 
         elif len(GUESS) != self.n:
                 print("Please enter a word with", self.n ,"letters. ")
                 self.display_input_word()
 
-        elif GUESS =='letter':
-            self.display_input_letter()
-            return
-
         else: 
-                self.guess = GUESS
+            self.guess = GUESS
                 
 
 
     #guessing a letter func  
     def display_input_letter(self):
-        GUESS = input("Your guess: \n" )
+        GUESS = input(" \n Your letter guess:" )
 
         if GUESS.isupper():
             GUESS = GUESS.lower()
             print(GUESS)
 
         if GUESS =='word':
-            self.display_input_word()
+            self.func = 'word'
             return
 
         for letter in self.letters_guessed: 
@@ -341,6 +364,7 @@ class GamePlay:
 
         else: 
             self.guess = GUESS
+            self.checker(self.guess)
 
             
         
@@ -350,7 +374,7 @@ class GamePlay:
         if it is, the index of the letter from the word is noted, and the list containg the ___ 
         is updated so the letter now stands where a _ was. 
         """
-        
+        print("reached checj")
         if len(GUESS) == 1:
             for index, letter in enumerate(self.correct_letters):
 
@@ -384,12 +408,11 @@ class GamePlay:
             else:
                  self.chances_left -= 1
                  machineprint('Incorrrect guess!!!!! ')
-                 self.guess_WL()
+                 self.display()
             
             
     def start(self):
         self.display()
-        self.guess_WL()
         self.checker(self.guess)
         
             
@@ -403,7 +426,7 @@ def play():
 
 
 
-welcome_message()   
-name()
+#welcome_message()   
+#name()
 play()
 
