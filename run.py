@@ -164,24 +164,22 @@ chances_gone = 0
 letters_spaces_found  = 0
 
 class GamePlay:
-    
-    word = randomWord()
-    print(word)
-    
-    correct_letters = [x for x in word] # getting the individual letters
 
-    n = len(word)                       #number of letters in word
-    
-    print("This is a ", n , "letter word")
-    
-    lis_ = [' _ ']*n        #list of _ _ _ *n
-    
-    chances = len(HANGMEN)                      #number of chances
-    
     def __init__(self, random_word):
         # instance attribute
+        self.word = random_word
         self.letters_found = []     #the correct letters entered.
         self.letters_guessed= []      #all the letters attempted
+        print(self.word)
+        
+        self.correct_letters = [x for x in self.word] # getting the individual letters
+
+        self.n = len(self.word)                       #number of letters in word
+
+        print("This is a ", self.n , "letter word")
+
+        self.lis_ = [' _ ']*self.n        #list of _ _ _ *n
+        self.chances = len(HANGMEN)                      #number of chances
         
         
         
