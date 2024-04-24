@@ -24,6 +24,8 @@ The introduction and instructions to the game are seperate functions called at t
 Words Used: 
 brick, jumpy, gent, lady, sad, over, vibes, fjord, nymph, waltz, ducks, bling, jumpy, treck, walk, lamp, post, stumped, back, bat, fowl, jordan, phlegm, halway, over, dumb, work, jawbox, kvetch, drying, jumble, dwarfing, poxy, jawbox, field, chinks, blacksmith, gunpowder.
 
+### Features
+
 
 ### Features Left to Implement
 

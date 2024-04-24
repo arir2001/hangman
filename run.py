@@ -346,7 +346,7 @@ class GamePlay:
             GUESS = GUESS.lower()
             print(GUESS)
 
-        if GUESS =='word':
+        elif GUESS =='word':
             self.func = 'word'
             return
 
