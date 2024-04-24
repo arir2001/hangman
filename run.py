@@ -180,3 +180,43 @@ class GamePlay:
                 print('guess strring', self.guess)
 
     
+
+    #guessing a letter func  
+    def display_input_letter(self):
+        GUESS = input("Your guess: " )
+        if len(GUESS) != 1:
+                machineprint("Please only guess one letter at a time. ")
+                self.display_input_letter()
+        else: 
+                print("Your have guessed the letter ", GUESS)
+                self.guess = GUESS
+
+                
+
+        
+            
+            
+
+def play():
+    random_word = randomWord()
+    play = GamePlay(random_word)
+    play.start()
+
+
+
+
+#welcome_message()   
+#name()
+play()
+
+
+
+
+    
+
+
+
+
+
+
+
