@@ -2,6 +2,7 @@
 import time
 import random
 import os 
+import sys
 
 HANGMEN = ['''
     +---+
@@ -196,6 +197,9 @@ class GamePlay:
 
         if playagain == 'N':
             machineprint("Goodbye, winner winner, chicken dinner.")
+            sys.exit(1)
+            print("After exit") 
+
 
 
     def loser(self):
@@ -211,6 +215,8 @@ class GamePlay:
 
         if playagain == 'N':
             machineprint("Goodbye, sucker.")
+            sys.exit(1)
+            print("After exit") 
 
 
 
@@ -218,7 +224,12 @@ class GamePlay:
     #prints the _ _ _ and the hangman. 
     def display(self ):
         self.chances_left = self.chances -  len(self.letters_guessed)   #the chances left
-        #creating the input lines 
+
+        if self.chances_left == 0:
+            self.loser()
+            return
+        
+        print(self.lis_)
         string_ = ' '.join([str(i) for i in self.lis_])  #adding the _ together in one string
 
         # creating hangman
@@ -248,11 +259,18 @@ class GamePlay:
     #guessing a letter func  
     def display_input_letter(self):
         GUESS = input("Your guess: " )
+        for letter in self.letters_guessed: 
+            if GUESS == letter:
+                print("This letter was already attempted. Try again.")
+                self.display_input_letter()
+                return
+
         if len(GUESS) != 1:
                 machineprint("Please only guess one letter at a time. ")
                 self.display_input_letter()
+
         else: 
-                print("Your have guessed the letter ", GUESS)
+                print("You have guessed the letter ", GUESS)
                 self.guess = GUESS
 
                 
@@ -288,6 +306,7 @@ class GamePlay:
                     if letter == GUESS:
                         self.letters_found.append(GUESS)
                         self.lis_[index]=letter
+                        #self.correct_letters.remove(letter)
                         machineprint('Correct guess!!!!! ')
                         
                         self.start()
