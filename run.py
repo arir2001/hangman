@@ -113,7 +113,7 @@ def machineprint(text, delay = 0.01):
 
 #the instructions to the game
 instruct = """Instructions:
-    A Hangman pic art will appear. He has 8 parts, including his head and rope, that gives you 8 chances 
+    A Hangman pic art will appear. He has 7 parts, including his head and rope, that gives you 7 chances 
     to guess the word given. You will be told the number of letters in the word, the letters you have guessed,
     and the chances you have left. 
 
@@ -211,6 +211,7 @@ class GamePlay:
 
         self.lis_ = [' _ ']*self.n        #list of _ _ _ *n
         self.chances = len(HANGMEN)                      #number of chances
+
         print('\n')
         machineprint("If you would prefer to guess a word, type 'word' into the terminal.")
         print('\n')
@@ -308,13 +309,6 @@ class GamePlay:
         print('\n' , "Letters found:",'\n' , self.letters_found)       #correct letterrs found
 
         self.WL(self.func)
-
-
-        
-
-
-        
-        
         
     #guessing a word func
     def display_input_word(self):
@@ -333,8 +327,6 @@ class GamePlay:
 
         else: 
             self.guess = GUESS
-                
-
 
     #guessing a letter func  
     def display_input_letter(self):
@@ -409,7 +401,6 @@ class GamePlay:
             
     def start(self):
         self.display()
-        self.checker(self.guess)
         
             
             
