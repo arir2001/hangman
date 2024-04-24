@@ -125,58 +125,58 @@ def randomWord():
 
 chances_gone = 0
 letters_spaces_found  = 0
-letters_used  = []
 
-def display(letters_spaces_found, letters_used, chances_gone):
-    #creating the input lines 
-    n = len(randomWord())                       #number of letters in word
-    lis_ = [' _ ']*n                            #_ _ _ *n
-    string_ = ' '.join([str(i) for i in lis_])  #adding the _ together in one string
+class GamePlay:
+    
+    word = randomWord()
+    
+    correct_letters = [x for x in word] # getting the individual letters
 
-    """if letters_spaces_found != 0:
-        string"""
+    n = len(word)                       #number of letters in word
+    
+    print("This is a ", n , "letter word")
+    
+    lis_ = [' _ ']*n        #list of _ _ _ *n
+    
+    chances = len(HANGMEN)                      #number of chances
+    
+    guess = ''
 
-    # creating hangman
-    m = len(HANGMEN) - chances_gone             #which hangman to print? 
-    print(HANGMEN[m])                       
-    print('\n', string_, '\n')                  #the _ _ _ _ 
-    print("Chances left:", m, '\n')             #numberr of chances left
-    print("Letters used:",'\n' , letters_used)  
-    return n
+    def __init__(self, random_word):
+        # instance attribute
+        self.letters_found = []     #the correct letters entered.
+        self.letters_guessed= []      #all the letters attempted
+        self.chances_left = self.chances -  len(self.letters_guessed)
+        #the chances left
+        
+    def winner():
+        print("You win!")
+        return
 
-display(0, 0, 3)
+    #prints the _ _ _ and the hangman. 
+    def display(self ):
+        #creating the input lines 
+        string_ = ' '.join([str(i) for i in self.lis_])  #adding the _ together in one string
 
-def display_input():
-    while x != 1:
+        # creating hangman
+        print(HANGMEN[self.chances_left-1])    #-1 due to indexing in python                   
+       
+        print('\n', string_, '\n')                  #the _ _ _ _ 
+       
+        print("Chances left:", self.chances_left, '\n')             #number of chances left
+        print("Letters used:",'\n' , self.letters_guessed)      #letters guessed
+        print("Letters found:",'\n' , self.letters_found)       #correct letterrs found
+        
+        
+    #guessing a word func
+    def display_input_word(self):
         GUESS = input("Your guess: " )
-
-        if len(GUESS) != n:
-            machineprint("Please enter a word with the correct number of letters. ")
+        if len(GUESS) != self.n:
+                print("Please enter a word with", self.n ,"letters. ")
+                self.display_input_word()
         else: 
-            machineprint("Your guess is ", GUESS)
-            return
-
-
-
-
-
-
-display_input()
-
-
-
-
-
-
+                print("Your word guess is ", GUESS)
+                self.guess = GUESS
+                print('guess strring', self.guess)
 
     
-
-
-
-
-
-'''
-welcome_message()   
-name()
-playgame()
-'''
