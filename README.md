@@ -57,6 +57,7 @@ The live link can be found here -
 
 - celebratorry emojis:  https://emojicombos.com/celebrate-ascii-emoji
 
+- words used: https://puzzling.stackexchange.com/questions/8212/word-sets-with-no-repeating-letters
 
 
 

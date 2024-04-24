@@ -35,3 +35,5 @@ jawbox
 fledgy
 skrump
 chintz
+blacksmith
+gunpowdery

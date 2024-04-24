@@ -84,7 +84,7 @@ CELEBRATE = """
 
     you are a free man......
                 for now......
-                play again?
+                            play again?
     """
 
 LOSER = """
@@ -100,7 +100,21 @@ def machineprint(text, delay = 0.01):
     print()
 
 #the instructions to the game
-instruct = " these are the instructions"
+instruct = """Instructions:
+    A Hangman pic art will appear. He has 8 parts, including his head and rope, that gives you 8 chances 
+    to guess the word given. You will be told the number of letters in the word, the letters you have guessed,
+    and the chances you have left. 
+
+    You will be asked if you want to guess the word or the letter. Input a capital W for word or L for letter. 
+    If you guess either of them wrong, a part of the hangman will be taken awaay and you will loose a chance. 
+    If you guess a letter twice, you will be told and no chances will be lost. There aare no repeating letters 
+    in this game.
+    If you guess a word that has one of the corrrect letters in it, you will not be told what letters are correct
+    and will still lose a life. You must guess lettters individually for them to be reveaaled.
+
+    IMPORTANT: all letters guessed must be lowercase. 
+
+    """
 x = 0
 
 #welcoming the game 
@@ -171,13 +185,17 @@ class GamePlay:
         self.word = random_word
         self.letters_found = []     #the correct letters entered.
         self.letters_guessed= []      #all the letters attempted
-        print(self.word)
+        #print(self.word)   #for testing
         
         self.correct_letters = [x for x in self.word] # getting the individual letters
 
         self.n = len(self.word)                       #number of letters in word
 
+        print('\n')
+
         print("This is a ", self.n , "letter word")
+
+        print('\n')
 
         self.lis_ = [' _ ']*self.n        #list of _ _ _ *n
         self.chances = len(HANGMEN)                      #number of chances
@@ -188,7 +206,7 @@ class GamePlay:
         machineprint("You win!")
 
         machineprint(CELEBRATE)
-
+        print('\n')
         playagain = input("Please enter Y or N:" )
 
         if playagain == 'Y': 
@@ -203,7 +221,11 @@ class GamePlay:
 
 
     def loser(self):
+        print('\n')
         machineprint("You LOSE!")
+        print('\n')
+        machineprint("The word was: ")
+        print(self.word)
 
         machineprint(LOSER)
 
@@ -229,7 +251,6 @@ class GamePlay:
             self.loser()
             return
         
-        print(self.lis_)
         string_ = ' '.join([str(i) for i in self.lis_])  #adding the _ together in one string
 
         # creating hangman
@@ -241,7 +262,7 @@ class GamePlay:
 
         print("Chances left:", self.chances_left, '\n')             #number of chances left
         print("Incorrect letters used:",'\n' , self.letters_guessed)      #letters guessed
-        print("Letters found:",'\n' , self.letters_found)       #correct letterrs found
+        print('\n' , "Letters found:",'\n' , self.letters_found)       #correct letterrs found
         
         
     #guessing a word func
@@ -251,14 +272,19 @@ class GamePlay:
                 print("Please enter a word with", self.n ,"letters. ")
                 self.display_input_word()
         else: 
-                print("Your word guess is ", GUESS)
                 self.guess = GUESS
-                print('guess strring', self.guess)
+                
 
 
     #guessing a letter func  
     def display_input_letter(self):
         GUESS = input("Your guess: " )
+
+        if GUESS.isupper():
+            print("please enter lowercase letter.")
+            self.display_input_letter()
+            return
+
         for letter in self.letters_guessed: 
             if GUESS == letter:
                 print("This letter was already attempted. Try again.")
@@ -270,7 +296,6 @@ class GamePlay:
                 self.display_input_letter()
 
         else: 
-                print("You have guessed the letter ", GUESS)
                 self.guess = GUESS
 
                 
@@ -311,7 +336,6 @@ class GamePlay:
                         
                         self.start()
 
-
                 else:
                      self.chances_left - 1
                      self.letters_guessed.append(GUESS)
@@ -329,7 +353,6 @@ class GamePlay:
                  self.guess_WL()
             
             
-               
     def start(self):
         self.display()
         self.guess_WL()
@@ -346,8 +369,8 @@ def play():
 
 
 
-#welcome_message()   
-#name()
+welcome_message()   
+name()
 play()
 
 
