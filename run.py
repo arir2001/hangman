@@ -225,7 +225,8 @@ class GamePlay:
         """
         self.word = random_word
         self.letters_found = []     #the correct letters entered.
-        self.letters_guessed= []      #all the letters attempted
+        self.letters_guessed= []      #all the letters incorrectly guessed
+        self.letters_all_used= []      #all the letters attempted
         #print(self.word)   #for testing
         
         self.correct_letters = [x for x in self.word] # getting the individual letters
@@ -378,8 +379,9 @@ class GamePlay:
     def display_input_letter(self):
         """This function checks the letter entered. 
         If the function is entered using upper case, we correct it to lower case
-        so we can match it up. If the user inputs 'word;, we then redirect the user 
-        to the word input function. 
+        so we can match it up. If it isn't a letteer, we prompt the user to try again.
+        If the user inputs 'word', we then redirect the user 
+        to the word input function.
         
        The letter is checked in the 'for loop' against each character in letters_guessed.
        If the guess equals a letter previously aanswers, the use is alerted and prompted 
@@ -406,7 +408,7 @@ class GamePlay:
             self.WL(self.func)
             return
 
-        for letter in self.letters_guessed: 
+        for letter in self.letters_all_used: 
             if GUESS == letter:
                 print("This letter was already attempted. Try again.")
                 self.display_input_letter()
@@ -419,7 +421,7 @@ class GamePlay:
             
 
         else: 
-            print('reaching else 365')
+            #print('reaching else 365')
             self.guess = GUESS
             self.checker(self.guess)
             return
@@ -428,61 +430,78 @@ class GamePlay:
         
     
     def checker(self, GUESS):
-        """checking if the letter guessed is in the word. 
-        if it is, the index of the letter from the word is noted, and the list containg the ___ 
-        is updated so the letter now stands where a _ was. 
+        """First we check if guess is a letter or a word. If a letter, we enter a foor loop that
+        for each index in the correct_letters list. The index is stored under index. The guess is then
+        checked if it is in the word in an if statement. If it is, it's appended to the letters found 
+        list. Then the index of the letter in the word is found in the lis which holds the _ _ _ .
+
+        The letter then appears therer as so: 
+        _ a _ _ 
+
+        If the list of letters found equal the list of correct letters, the winner function is displayed.
+        The lists are presented as sets so the order doesn't matter.
+
+        The display() function is then called, which starts the process of entering a word/letter all over.
+
+        if a word is entered, we first check if it equals the same number of letters as the word. 
+        If the word is correct, the winner function is executed. If not, a chance is lost, incorrect guess 
+        staatement printed, and display entered again. 
         """
         if len(GUESS) == 1:
             for index, letter in enumerate(self.correct_letters):
 
                 index = index
-                if GUESS in self.letters_guessed:
-                    print("You've already guessed this letter.")
                     
                 if GUESS in self.word:
                     if letter == GUESS:
                         self.letters_found.append(GUESS)
+                        self.letters_all_used.append(GUESS)
                         self.lis_[index]=letter
                         #self.correct_letters.remove(letter)
-                        machineprint('Correct guess!!!!! ')
+                        machineprint('\n Correct guess!!!!! \n ')
 
                         if set(self.letters_found) == set(self.correct_letters):
                              self.winner()
-            
-                        self.start()
+                             return
+                        
+                        self.display()
+                        return
 
                 else:
                      self.chances_left -= 1
+                     self.letters_all_used.append(GUESS)
                      self.letters_guessed.append(GUESS)
-                     machineprint('Incorrrect guess!!!!! ')
-                     self.start()
+                     machineprint('\n Incorrrect guess!!!!! \n ')
+                     self.display()
+                     return
         
 
         if len(GUESS) == self.n:
             if GUESS == self.word:
                 self.winner()
+                return
             
             else:
                  self.chances_left -= 1
-                 machineprint('Incorrrect guess!!!!! ')
+                 machineprint('\n Incorrrect guess!!!!! \n  ')
                  self.display()
+                 return
             
             
-    def start(self):
-        self.display()
-        
+
             
             
 
 def play():
-    random_word = randomWord()
-    play = GamePlay(random_word)
-    play.start()
+    """ this functino starts the entire game. It enters the gameplay class with a random word from the 
+    random word function. Then it enters the display function, as a class object."""
+    play = GamePlay(randomWord())
+    play.display()
 
 
 
 
-welcome_message()   
-name()
+#welcome_message()   
+#name()
 play()
 
