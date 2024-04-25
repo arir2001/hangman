@@ -4,15 +4,13 @@ Hangman is a classic game where a stick figure hanging from a rope has his limbs
 
 Hangman is a fun and challenging word-guessing game that tests players' vocabulary, deductive reasoning, and luck.
 
+The link to the game can be found [here](https://hangman-1-game-371a683f8158.herokuapp.com/)
+
 ![Responsive Mockup](amiresponsive.png)
 
 Though a phone can be seen in this mock up, when tested, this app DOES NOT work on a phone, as the terminal is too big and doesn't accept input from phone users.
 
 As such, this is not mobile compatible. After testing on an ipad, it does not work there either. This game is only compatible with computers. 
-
-
-The live link can be found here: 
-https://hangman-1-game-371a683f8158.herokuapp.com/
 
 ## Site Goals!
 - to provide a game that is both challenging and rewarding.
@@ -30,7 +28,7 @@ After, this is how it ended up:
 The code uses class-based object-orientated programming. 
 The introduction and instructions to the game are seperate functions called at the end of the code. Then the game plays through the class "GamePlay." If the user is  winner, celebratory text art is printed. If a loser, sad text art is printed. 
 
-More context on the specifics of each functions are given in the run.py file in triple commas beneath each function. l
+More context on the specifics of each functions are given in the run.py file in triple commas beneath each function. 
 
 ### Words Used: 
 A variety of common and uncommon words were used with some harder words like phlegm, some strange words like "kvetch" (meaning a person who complains a great deal) and some easy words like "lamp, lady, sad, over."
@@ -78,7 +76,7 @@ If thhe user loses, the loser screen prints, hopefully antagonising the player e
 ### Validator Testing 
 ![Validator screen ](validator.png)
 
-Validator can be found here: https://pep8ci.herokuapp.com/#
+Validator can be found here [here](https://pep8ci.herokuapp.com/#)
 
 There were over 500 errors when the run.py file was inputed to the CI Python Linter. I did not fix them all as most of them were small warnings like trailing white space, or that thhe comments made with # did not have a space after the hastage, appearing as #comment instead of # comment. 
 
@@ -95,26 +93,24 @@ The steps to do so are as follows:
 - For the Code Institute template to properly work, the Config Vars MUST be set to key: PORT and value: 8000. The game will not work without this. 
 - Deploy the branch, let the game build itself, and the launch. 
 
-https://hangman-1-game-371a683f8158.herokuapp.com/
-
 
 ## Credits 
 ### Content 
 
-- slow printing of text in terminal: https://gist.github.com/wynand1004/5a9fd2837140fcdf26e790a112d09ac4
+- [slow printing of text in terminal](https://gist.github.com/wynand1004/5a9fd2837140fcdf26e790a112d09ac4)
 
-- hangman text art: https://gist.github.com/chrishorton/8510732aa9a80a03c829b09f12e20d9c
+- [hangman text art](https://gist.github.com/chrishorton/8510732aa9a80a03c829b09f12e20d9c)
 
-- walking text art: https://emojicombos.com/walk-ascii-art
+- [walking text art](https://emojicombos.com/walk-ascii-art)
 
-- celebratorry emojis:  https://emojicombos.com/celebrate-ascii-emoji
+- [celebratorry emojis](https://emojicombos.com/celebrate-ascii-emoji)
 
-- words used: https://puzzling.stackexchange.com/questions/8212/word-sets-with-no-repeating-letters
+- [words used](https://puzzling.stackexchange.com/questions/8212/word-sets-with-no-repeating-letters)
 
 
 
 ### Media
 
-- The flowchart was ccreated using Lucid Chart 
+- The flowchart was ccreated using [Lucid Chart ](https://www.lucidchart.com/pages/landing?utm_source=google&utm_medium=cpc&utm_campaign=_chart_en_tier1_mixed_search_brand_exact_&km_CPC_CampaignId=1490375427&km_CPC_AdGroupID=55688909257&km_CPC_Keyword=lucidchart&km_CPC_MatchType=e&km_CPC_ExtensionID=&km_CPC_Network=g&km_CPC_AdPosition=&km_CPC_Creative=442433236001&km_CPC_TargetID=aud-809923745462:kwd-33511936169&km_CPC_Country=1007880&km_CPC_Device=c&km_CPC_placement=&km_CPC_target=&gad_source=1&gclid=Cj0KCQjw_qexBhCoARIsAFgBlet8HkOPYRznpDbwCNuXSaQdnyRH5uWypBc_8PaaMxtyow1vxM9xsQEaAobJEALw_wcB)
 
 
