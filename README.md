@@ -64,7 +64,7 @@ If thhe user loses, the loser screen prints, hopefully antagonising the player e
 
 - An ability to use words with double-letters. At the moment the code is not set up to handle inputs of a letter morre than once, and cannot understand how to deal with words that have a letter in it more than once.
 
-- A leaderboard. If a google sheet were connected, the names, scores and dates could be updated and viewed. 
+- A leaderboard. If a google sheet were connected, the names, scores and dates could be updated and viewed. The name has already been asked for in the script, but after saying welcome, it is not used again.
 
 - Words guessed list. At the moment there is a letters guessed list, but the words guessed aren't written. 
 
