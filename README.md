@@ -82,7 +82,7 @@ Validator can be found here: https://pep8ci.herokuapp.com/#
 
 There were over 500 errors when the run.py file was inputed to the CI Python Linter. I did not fix them all as most of them were small warnings like trailing white space, or that thhe comments made with # did not have a space after the hastage, appearing as #comment instead of # comment. 
 
-However, I did fix "E501 line too long (86 > 79 characters)", E222 multiple spaces after operator "E225 missing whitespace around operator" and  E303 too many blank lines (3).
+However, I did fix "E501 line too long (86 > 79 characters)", E222 multiple spaces after operator "E225 missing whitespace around operator" and  "E303 too many blank lines."
 
 ## Deployment
 
