@@ -38,11 +38,14 @@ A variety of common and uncommon words were used with some harder words like phl
 brick, jumpy, gent, lady, sad, over, vibes, fjord, nymph, waltz, ducks, bling, jumpy, treck, walk, lamp, post, stumped, back, bat, fowl, jordan, phlegm, halway, over, dumb, work, jawbox, kvetch, drying, jumble, dwarfing, poxy, jawbox, field, chinks, blacksmith, gunpowder.
 
 # Features
-The user is welcomed by a sign and some nice text: 
-![Second Coding flowchart](LANDINGART.png)
+The user is welcomed by a sign and some nice text. The button "Hang that man" reloads the code if pressed.  
+![Welcoming message.](LANDINGART.png)
+
+While the html content provided by Code Institute was not greatly edited, the css in 'layout.html' was edited so the terminal and button were centerred, the background color black, and the button red. Below is the prervious layout prrovided for by Code Institute. This screenshot is of a test programme I wrote from a now deleted code. 
+![Previous css set up.](pookie.png)
 
 Then the user gets to choose if she wishes to see the instruction manual. She is then asked if she wants to input words or letters. She can change this at any time using word or letter into the input. 
-![Second Coding flowchart](landing2.png)
+![Name being asked](landing2.png)
 
 If the incorrect word is entered, the chances left is decreased and the little haangman loses a limb. 
 
@@ -92,7 +95,7 @@ The steps to do so are as follows:
 - For the Code Institute template to properly work, the Config Vars MUST be set to key: PORT and value: 8000. The game will not work without this. 
 - Deploy the branch, let the game build itself, and the launch. 
 
- https://hangman-1-game-371a683f8158.herokuapp.com/
+https://hangman-1-game-371a683f8158.herokuapp.com/
 
 
 ## Credits 
