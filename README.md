@@ -30,6 +30,12 @@ The introduction and instructions to the game are seperate functions called at t
 
 More context on the specifics of each functions are given in the run.py file in triple commas beneath each function. 
 
+# Libraries used: 
+import time - for the machineprint to slow print every character. 
+import random - to choose a random word.
+import os - to exit the game.
+import sys - to clear the terminal. 
+
 ### Words Used: 
 A variety of common and uncommon words were used with some harder words like phlegm, some strange words like "kvetch" (meaning a person who complains a great deal) and some easy words like "lamp, lady, sad, over."
 
