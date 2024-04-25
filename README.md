@@ -6,6 +6,11 @@ Hangman is a fun and challenging word-guessing game that tests players' vocabula
 
 ![Responsive Mockup](amiresponsive.png)
 
+Though a phone can be seen in this mock up, when tested, this app DOES NOT work on a phone, as the terminal is too big and doesn't accept input from phone users.
+
+As such, this is not mobile compatible. After testing on an ipad, it does not work there either. This game is only compatible with computers. 
+
+
 The live link can be found here: 
 https://hangman-1-game-371a683f8158.herokuapp.com/
 
@@ -25,29 +30,45 @@ After, this is how it ended up:
 The code uses class-based object-orientated programming. 
 The introduction and instructions to the game are seperate functions called at the end of the code. Then the game plays through the class "GamePlay." If the user is  winner, celebratory text art is printed. If a loser, sad text art is printed. 
 
-Words Used: 
+More context on the specifics of each functions are given in the run.py file in triple commas beneath each function. l
+
+### Words Used: 
+A variety of common and uncommon words were used with some harder words like phlegm, some strange words like "kvetch" (meaning a person who complains a great deal) and some easy words like "lamp, lady, sad, over."
+
 brick, jumpy, gent, lady, sad, over, vibes, fjord, nymph, waltz, ducks, bling, jumpy, treck, walk, lamp, post, stumped, back, bat, fowl, jordan, phlegm, halway, over, dumb, work, jawbox, kvetch, drying, jumble, dwarfing, poxy, jawbox, field, chinks, blacksmith, gunpowder.
 
-### Features
+# Features
 The user is welcomed by a sign and some nice text: 
 ![Second Coding flowchart](LANDINGART.png)
 
 Then the user gets to choose if she wishes to see the instruction manual. She is then asked if she wants to input words or letters. She can change this at any time using word or letter into the input. 
 ![Second Coding flowchart](landing2.png)
 
-If the incorrect word is entered, the chances left is decreased and the little haangman loses a limb. If the word is correct, the winning screen is shown. If the letter is correct,the winner screen prints. 
+If the incorrect word is entered, the chances left is decreased and the little haangman loses a limb. 
+
 ![Chances gone](landing3.png)
 
+If the word is correct, the winning screen is shown. If the letter is correct,the winner screen prints with happy emojis and a man walking away, indicating he is free from being hung. 
+
 ![Winner screen ](winning1.png)
-![Winner screen 2](winning2.png)
+
+The user is the asked if she wishes to play again. If so, the game clears and restarts. 
+
+![Winner screen 2](wining2.png)
+
+If thhe user loses, the loser screen prints, hopefully antagonising the player enough to make them want to play again!
 
 ![Loseer screen ](loser.png)
 
-### Features Left to Implement
+### Possible features Left to Implement
 
 - An ability to use words with double-letters. At the moment the code is not set up to handle inputs of a letter morre than once, and cannot understand how to deal with words that have a letter in it more than once.
 
 - A leaderboard. If a google sheet were connected, the names, scores and dates could be updated and viewed. 
+
+- Words guessed list. At the moment there is a letters guessed list, but the words guessed aren't written. 
+
+- Two player mode. If two scores were kept a track of, two players could compete against eachother. 
 
 ## Testing 
 
@@ -57,7 +78,15 @@ If the incorrect word is entered, the chances left is decreased and the little h
 ## Deployment
 
 - The site was deployed to Heruko App. 
-The live link can be found here - https://hangman-1-game-371a683f8158.herokuapp.com/
+The steps to do so are as follows: 
+- Launch Heroku app
+- Select new app set up, name the game, select appropriate region
+- Link github repository
+- In settings of the app page, add Python and Nodes.js buildpacks
+- For the Code Institute template to properly work, the Config Vars MUST be set to key: PORT and value: 8000. The game will not work without this. 
+- Deploy the branch, let the game build itself, and the launch. 
+
+ https://hangman-1-game-371a683f8158.herokuapp.com/
 
 
 ## Credits 
