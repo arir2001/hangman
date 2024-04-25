@@ -4,6 +4,7 @@ import random
 import os 
 import sys
 
+#hangmen pic aart
 HANGMEN = ['''
     +---+
     |   |
@@ -55,7 +56,7 @@ HANGMEN = ['''
          |
     =========''']
 
-
+#celebration message
 CELEBRATE = """
     ＼(＾O＾)／
 
@@ -87,6 +88,7 @@ CELEBRATE = """
                             play again?
     """
 
+#loser message
 LOSER = """
 
     $$______ ____$$$___ ___$$$$$__ __$$$$$$$_ __$$$$$$__ ____$$_
@@ -191,7 +193,7 @@ def name():
             return
         elif CORRECT == 'n':
             name()
-            x==1
+            x == 1
             return
         else: 
             machineprint("That is an invalid input. Please try again.\n")
@@ -207,9 +209,20 @@ def randomWord():
 
 
 class GamePlay:
+    """game play class"""
 
     def __init__(self, random_word):
-        # instance attribute
+        """instance attribute:
+        This assigns a random word, provides empty lists for letters found and guessed.
+        Correct_letters is a list of the characters for when we must check the letter.
+        'n' is a variable that stores the number of letters in the word.
+        'lis' holds the _ _ _ . It is updated to found the letters found in the right index 
+        later on in 'checker'.
+
+        Then user is asked if they want to use word or letter which is entered to 'func' 
+        
+        display function called. 
+        """
         self.word = random_word
         self.letters_found = []     #the correct letters entered.
         self.letters_guessed= []      #all the letters attempted
@@ -235,6 +248,9 @@ class GamePlay:
 
 
     def WL(self, func):
+        """WL staands for Word Letter. 
+        the func string 'word' or 'letter' is entered, which then directs the user to 
+        the word-entering function or the letter-entering funcction."""
         func = func.lower()
         if func == 'word':
             self.display_input_word()
@@ -247,6 +263,11 @@ class GamePlay:
         
     
     def winner(self):
+        """If useer is a winner, this function plays winner message and then 
+        asks if user wants to play again. if so, the system cclears and the play() method
+        is started again. If not, the goodbye message is entered. 
+        """
+
         machineprint("You win!")
 
         machineprint(CELEBRATE)
@@ -267,6 +288,8 @@ class GamePlay:
 
 
     def loser(self):
+        """ Loser message announced. Word revealed. Playagain question asked, and if so
+        system cleaars and Play() started again. If not, goodbye message printed. """
         print('\n')
         machineprint("You LOSE!")
         print('\n')
@@ -287,13 +310,14 @@ class GamePlay:
         if playagain == 'n':
             machineprint("Goodbye, sucker.")
             sys.exit(1)
-            print("After exit") 
 
 
-
-
-    #prints the _ _ _ and the hangman. 
     def display(self ):
+        """This is the main function that displays the hangman as it loses limbs, 
+        the cchances left, the letters found, the _ _ _, number of letters in the word.
+        If chances left = 0, loser function is triggered. 
+        The function is then directed to WL function, which, depending on the self.func
+        variable, directs the user to the word function or letter function inputs.  """
 
         print('\n')
         self.chances_left = self.chances -  len(self.letters_guessed)   #the chances left
@@ -317,9 +341,21 @@ class GamePlay:
         print('\n' , "Letters found:",'\n' , self.letters_found)       #correct letterrs found
 
         self.WL(self.func)
+
         
-    #guessing a word func
     def display_input_word(self):
+        """This function checks thee word entered. 
+        If the function is entered using upper case, we correct it to lower case
+        so we can match it up. If the user inputs 'letter;, we then redirect the user 
+        to the letter input function. 
+        
+        If the word is not the same length as the word in queestion, a messaage prompts
+        the user to enter the right number of letters, and is redirected to the top of the 
+        function. 
+        
+        The final 'else' then assigns the  guess to self.guess, and inputs it into the 
+        checker function. """
+
         GUESS = input("Your word guess: \n" )
         if GUESS.isupper():
             GUESS = GUESS.lower()
@@ -331,21 +367,43 @@ class GamePlay:
         elif len(GUESS) != self.n:
             print("Please enter a word with", self.n ,"letters. ")
             self.display_input_word()
+            return
 
         else: 
             self.guess = GUESS
             self.checker(self.guess)
+            return
 
-    #guessing a letter func  
+
     def display_input_letter(self):
+        """This function checks the letter entered. 
+        If the function is entered using upper case, we correct it to lower case
+        so we can match it up. If the user inputs 'word;, we then redirect the user 
+        to the word input function. 
+        
+       The letter is checked in the 'for loop' against each character in letters_guessed.
+       If the guess equals a letter previously aanswers, the use is alerted and prompted 
+       to try again. 
+
+       If the guess doesn't equal one letter, the user is prompted to only guess one letter
+       at a time. 
+        
+        The final 'else' then assigns the  guess to self.guess, and inputs it into the 
+        checker function. """
+
+
         GUESS = input(" \n Your letter guess:" )
 
         if GUESS.isupper():
             GUESS = GUESS.lower()
+        
+        if not GUESS.isalpha():
+            print("Invalid input. Try again.")
 
         if GUESS =='word':
-            print("reaching func 349")
+            print("reachning func 349")
             self.func = 'word'
+            self.WL(self.func)
             return
 
         for letter in self.letters_guessed: 
@@ -357,12 +415,14 @@ class GamePlay:
         if len(GUESS) != 1:
             machineprint("Please only guess one letter at a time. ")
             self.display_input_letter()
+            return
             
 
         else: 
             print('reaching else 365')
             self.guess = GUESS
             self.checker(self.guess)
+            return
 
             
         
@@ -392,7 +452,7 @@ class GamePlay:
                         self.start()
 
                 else:
-                     self.chances_left - 1
+                     self.chances_left -= 1
                      self.letters_guessed.append(GUESS)
                      machineprint('Incorrrect guess!!!!! ')
                      self.start()

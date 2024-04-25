@@ -5,6 +5,10 @@ Hangman is a classic game where a stick figure hanging from a rope has his limbs
 Hangman is a fun and challenging word-guessing game that tests players' vocabulary, deductive reasoning, and luck.
 
 ![Responsive Mockup](amiresponsive.png)
+
+The live link can be found here: 
+https://hangman-1-game-371a683f8158.herokuapp.com/
+
 ## Site Goals!
 - to provide a game that is both challenging and rewarding.
 - to entertain the user with interactive text form the terminal
@@ -35,7 +39,7 @@ If the incorrect word is entered, the chances left is decreased and the little h
 ![Chances gone](landing3.png)
 
 ![Winner screen ](winning1.png)
-![Winner screen ](winning2.png)
+![Winner screen 2](winning2.png)
 
 ![Loseer screen ](loser.png)
 
